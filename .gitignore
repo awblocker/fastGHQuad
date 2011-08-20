@@ -1,0 +1,19 @@
+# vim swap files
+*.sw*
+# Eclipse files
+.project
+.*project
+.settings
+# Pickled results
+*.pickle*
+# Images
+*.png
+# vim sessions
+*.vim
+# Python bytecode
+*.pyc
+# Object files
+*.o
+*.so
+# Rcheck results
+*Rcheck*
