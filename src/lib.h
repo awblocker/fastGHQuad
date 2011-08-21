@@ -28,4 +28,8 @@ RcppExport SEXP hermitePolyCoef( SEXP nR );
 int gaussHermiteData( int n, double* x, double* w );
 RcppExport SEXP gaussHermiteData( SEXP nR );
 
+void buildHermiteJacobi( int n, double* D, double* E );
+void quadInfoGolubWelsch( int n, double* D, double* E, double mu0,
+                          double* x, double* w );
+
 #endif

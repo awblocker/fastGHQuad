@@ -1,5 +1,102 @@
 #include "lib.h"
 
+void buildHermiteJacobi( int n, double* D, double* E ) {
+//
+// Construct symmetric tridiagonal matrix similar to Jacobi matrix
+// for Hermite polynomials
+//
+// On exit, D contains diagonal elements of said matrix;
+// E contains subdiagonal elements.
+//
+// Need D of size n, E of size n-1
+//
+// Building matrix based on recursion relation for monic versions of Hermite
+// polynomials:
+//      p_n(x) = H_n(x) / 2^n
+//      p_n+1(x) + (B_n-x)*p_n(x) + A_n*p_n-1(x) = 0
+//      B_n = 0
+//      A_n = n/2
+// 
+// Matrix similar to Jacobi (J) defined by:
+//      J_i,i = B_i-1, i = 1, ..., n
+//      J_i,i-1 = J_i-1,i = sqrt(A_i-1), i = 2, ..., n
+//
+
+    // Build diagonal
+    int i;
+    for (i=0; i<n; i++) {
+        D[i]    = 0;
+    }
+
+    // Build sub/super-diagonal
+    for (i=0; i<n-1; i++) {
+        E[i]    = sqrt((i+1.0)/2);
+    }
+    
+}
+
+void quadInfoGolubWelsch( int n, double* D, double* E, double mu0,
+                          double* x, double* w ) {
+//
+// Compute weights & nodes for Gaussian quadrature using Golub-Welsch algorithm.
+//
+// First need to build symmetric tridiagonal matrix J similar to Jacobi for
+// desired orthogonal polynomial (based on recurrence relation).
+// 
+// D contains the diagonal of this matrix J, and E contains the
+// sub/super-diagonal.
+//
+// This routine finds the eigenvectors & values of the given J matrix.
+//
+// The eigenvalues correspond to the nodes for the desired quadrature rule
+// (roots of the orthogonal polynomial).
+//
+// The eigenvectors can be used to compute the weights for the quadrature rule
+// via:
+//
+//      w_j = mu0 * (v_j,1)^2
+// 
+// where mu0 = \int_a^b w(x) dx
+// (integral over range of integration of weight function)
+//
+// and 
+//
+// v_j,1 is the first entry of the jth normalized (to unit length) eigenvector.
+//
+// On exit, x (length n) contains nodes for quadrature rule, and w (length n)
+// contains weights for quadrature rule.
+//
+// Note that contents of D & E are destroyed on exit
+//
+
+    // Setup for eigenvalue computations
+    char JOBZ   = 'V'; // Compute eigenvalues & vectors
+    int INFO;
+
+    // Initialize array for workspace
+    double * WORK   = new double[2*n-2];
+
+    // Initialize array for eigenvectors
+    double * Z      = new double[n*n];
+
+    // Run eigen decomposition
+    dstev_(&JOBZ, &n, D, E,     // Job flag & input matrix
+            Z, &n,              // Output array for eigenvectors & dim
+            WORK, &INFO         // Workspace & info flag
+            );
+
+    // Setup x & w
+    int i;
+    for (i=0; i<n; i++) {
+        x[i] = D[i];
+        w[i] = mu0*Z[i*n]*Z[i*n];
+    }
+
+    // Deallocate temporary arrays
+    delete WORK;
+    delete Z;
+}
+
 void findPolyRoots( double* c, int n, double* r ) {
 //
 // Compute roots of polynomial with coefficients c using eigenvalue
