@@ -80,7 +80,7 @@ void quadInfoGolubWelsch( int n, double* D, double* E, double mu0,
     double * Z      = new double[n*n];
 
     // Run eigen decomposition
-    dstev_(&JOBZ, &n, D, E,     // Job flag & input matrix
+    F77CALL(dstev)(&JOBZ, &n, D, E,     // Job flag & input matrix
             Z, &n,              // Output array for eigenvectors & dim
             WORK, &INFO         // Workspace & info flag
             );
