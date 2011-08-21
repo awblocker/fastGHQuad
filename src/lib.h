@@ -25,11 +25,13 @@ RcppExport SEXP findPolyRoots( SEXP cR );
 void hermitePolyCoef( int n, double* c );
 RcppExport SEXP hermitePolyCoef( SEXP nR );
 
-int gaussHermiteData( int n, double* x, double* w );
-RcppExport SEXP gaussHermiteData( SEXP nR );
-
 void buildHermiteJacobi( int n, double* D, double* E );
 void quadInfoGolubWelsch( int n, double* D, double* E, double mu0,
                           double* x, double* w );
+
+int gaussHermiteDataDirect( int n, double* x, double* w );
+int gaussHermiteData( int n, double* x, double* w );
+RcppExport SEXP gaussHermiteData( SEXP nR );
+
 
 #endif

@@ -337,7 +337,7 @@ SEXP evalHermitePoly(SEXP xR, SEXP nR) {
     }
 }
 
-int gaussHermiteData( int n, double* x, double* w ) {
+int gaussHermiteDataDirect( int n, double* x, double* w ) {
 //
 // Calculates roots & weights of Hermite polynomials of order n for
 // Gauss-Hermite integration.
@@ -345,6 +345,9 @@ int gaussHermiteData( int n, double* x, double* w ) {
 // Need x & w of size n
 //
 // Using standard formulation (no generalizations or polynomial adjustment)
+// 
+// Direct evaluation and root-finding; clear, but numerically unstable
+// for n>20 or so
 //
     // Calculate coefficients of Hermite polynomial of given order
     double * coef   = new double[n+1];
@@ -366,6 +369,36 @@ int gaussHermiteData( int n, double* x, double* w ) {
 
     // Deallocate temporary objects
     delete coef;
+
+    return 0;
+}
+
+int gaussHermiteData( int n, double* x, double* w ) {
+//
+// Calculates nodes & weights for Gauss-Hermite integration of order n
+//
+// Need x & w of size n
+//
+// Using standard formulation (no generalizations or polynomial adjustment)
+//
+// Evaluations use Golub-Welsch algorithm; numerically stable for n>=100
+//
+    // Build Jacobi-similar symmetric tridiagonal matrix via diagonal &
+    // sub-diagonal
+    double * D, * E;
+    D   = new double[n];
+    E   = new double[n];
+    //
+    buildHermiteJacobi( n, D, E );
+
+    // Get nodes & weights
+    double mu0  = sqrt(PI);
+    quadInfoGolubWelsch( n, D, E, mu0,
+                          x, w );
+
+    // Deallocate temporary objects
+    delete D;
+    delete E;
 
     return 0;
 }
