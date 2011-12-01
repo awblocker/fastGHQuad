@@ -3,7 +3,10 @@
 
 #include "lib.h"
 
-RcppExport SEXP integrateFunction( SEXP fR, SEXP nR );
-RcppExport SEXP integrateFunction( SEXP fR, SEXP xR, SEXP wR);
+RcppExport SEXP integrateFunction( SEXP fR, SEXP xR, SEXP wR );
+
+RcppExport SEXP integrateFunctionLaplaceApprox( SEXP fR,
+        SEXP muHatR, SEXP sigmaHatR,
+        SEXP xR, SEXP wR );
 
 #endif
