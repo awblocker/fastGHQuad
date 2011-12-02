@@ -17,8 +17,6 @@ Laplace approximations (as in Liu & Pierce 1994).
 \tabular{ll}{
 Package: \tab fastGHQuad\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2011-12-01\cr
 License: \tab MIT \cr
 LazyLoad: \tab yes\cr
 }
