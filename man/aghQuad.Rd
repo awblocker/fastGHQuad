@@ -10,7 +10,7 @@ Laplace approximation.
 }
 
 \usage{
-aghQuad(g, muHat, sigmaHat, rule, ...)
+aghQuad(n)
 }
 
 \arguments{
