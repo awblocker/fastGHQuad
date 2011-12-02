@@ -43,7 +43,7 @@ Biometrika, 81(3) 624-629.
 
 \author{Alexander W Blocker \email{ablocker@gmail.com}}
 
-\seealso{\code{\link{aghq}}}
+\seealso{\code{\link{aghQuad}}, \code{\link{ghQuad}}}
 
 
 
