@@ -1,0 +1,64 @@
+\name{ghQuad}
+\alias{ghQuad}
+\title{
+Convenience function for Gauss-Hermite quadrature
+}
+
+\description{
+Convenience function for evaluation of Gauss-Hermite quadrature
+}
+
+\usage{
+ghQuad(f, rule, ...)
+}
+
+\arguments{
+\item{f}{Function to integrate with respect to first (scalar) argument; this
+does not include the weight function \code{exp(-x^2)}}
+\item{rule}{Gauss-Hermite quadrature rule to use, as produced by
+\code{\link{gaussHermiteData}}}
+}
+
+\details{
+}
+
+\value{
+Numeric (scalar) with approximation integral of f(x)*exp(-x^2) from -Inf to Inf.
+}
+
+\examples{
+# Get quadrature rules
+rule10  <- gaussHermiteData(10)
+rule100 <- gaussHermiteData(100)
+
+# Check that rule is implemented correctly
+f <- function(x) rep(1,length(x))
+S <- ghQuad(f, rule10)
+S == sqrt(pi)
+S <- ghQuad(f, rule100)
+S == sqrt(pi)
+
+f <- function(x) x
+S <- ghQuad(f, rule10)
+S
+S <- ghQuad(f, rule100)
+S
+# These should be zero
+
+}
+
+\references{
+Golub, G. H. and Welsch, J. H. (1969). Calculation of Gauss Quadrature Rules.
+Mathematics of Computation 23 (106): 221–230.
+
+Liu, Q. and Pierce, D. A. (1994). A Note on Gauss-Hermite Quadrature.
+Biometrika, 81(3) 624-629.
+}
+
+\author{Alexander W Blocker \email{ablocker@gmail.com}}
+
+\seealso{\code{\link{gaussHermiteData}}, \code{\link{ghQuad}}}
+
+
+
+\keyword{math}
