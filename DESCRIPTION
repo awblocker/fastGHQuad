@@ -8,5 +8,6 @@ Maintainer: Alexander W Blocker <ablocker@gmail.com>
 Description: Fast, numerically-stable Gauss-Hermite quadrature
 License: MIT
 LazyLoad: yes
+URL: https://github.com/awblocker/fastGHQuad
 Depends: Rcpp (>= 0.9.6)
 LinkingTo: Rcpp
