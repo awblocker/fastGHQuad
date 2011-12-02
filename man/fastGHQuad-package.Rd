@@ -3,38 +3,40 @@
 \alias{fastGHQuad}
 \docType{package}
 \title{
-What the package does (short line)
+A package for fast, numerically-stable computation of Gauss-Hermite quadrature
+rules
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+This package provides functions to compute Gauss-Hermite quadrature rules very
+quickly with a higher degree of numerical stability (tested up to 2000 nodes).
+
+It also provides function for adaptive Gauss-Hermite quadrature, extending
+Laplace approximations (as in Liu & Pierce 1994).
 }
 \details{
 \tabular{ll}{
 Package: \tab fastGHQuad\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
-Date: \tab 2011-08-19\cr
-License: \tab What license is it under?\cr
+Date: \tab 2011-12-01\cr
+License: \tab MIT \cr
 LazyLoad: \tab yes\cr
 }
-~~ An overview of how to use the package, including the most important ~~
-~~ functions ~~
 }
 \author{
-Who wrote it
+Alexander W Blocker
 
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Maintainer: Alexander W Blocker <ablocker@gmail.com>
 }
 \references{
-~~ Literature or other references for background information ~~
+Golub, G. H. and Welsch, J. H. (1969). Calculation of Gauss Quadrature Rules.
+Mathematics of Computation 23 (106): 221–230
+
+Liu, Q. and Pierce, D. A. (1994). A Note on Gauss-Hermite Quadrature.
+Biometrike, 81(3) 624-629.
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in ~~
-~~ the R documentation directory ~~
 \keyword{ package }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
 }
 \examples{
 %% ~~ simple examples of the most important functions ~~
