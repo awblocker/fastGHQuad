@@ -39,7 +39,6 @@ Biometrike, 81(3) 624-629.
 \seealso{
 }
 \examples{
-
 # Get quadrature rule
 rule <- gaussHermiteData(1000)
 
@@ -53,5 +52,4 @@ aghQuad(g, 0, 1.1, rule)
 g <- function(x) x^2*dt(x,10) # t distribution with 10 df
 aghQuad(g, 0, 1.1, rule)
 # actual is 1.25
-
 }
