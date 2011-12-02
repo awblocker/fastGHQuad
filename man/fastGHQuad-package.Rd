@@ -39,5 +39,19 @@ Biometrike, 81(3) 624-629.
 \seealso{
 }
 \examples{
-%% ~~ simple examples of the most important functions ~~
+
+# Get quadrature rule
+rule <- gaussHermiteData(1000)
+
+# Find a normalizing constant
+g <- function(x) 1/(1+x^2/10)^(11/2) # t distribution with 10 df
+aghQuad(g, 0, 1.1, rule)
+# actual is
+1/dt(0,10)
+
+# Find an expectation
+g <- function(x) x^2*dt(x,10) # t distribution with 10 df
+aghQuad(g, 0, 1.1, rule)
+# actual is 1.25
+
 }
