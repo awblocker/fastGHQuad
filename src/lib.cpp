@@ -363,7 +363,7 @@ int gaussHermiteDataDirect( int n, double* x, double* w ) {
     for (i=0; i<n; i++) {
         // First, compute the log-weight
         w[i]    = (n-1)*log2 + lgamma(n+1) + logsqrtpi -
-                  2*log(n+0.0) - 2*log(abs(hermitePoly(x[i], n-1)));
+                  2*log((double)n) - 2*log(abs(hermitePoly(x[i], n-1)));
         w[i]    = exp(w[i]);
     }
 
