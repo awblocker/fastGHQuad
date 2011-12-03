@@ -10,7 +10,7 @@ Laplace approximation.
 }
 
 \usage{
-aghQuad(n)
+aghQuad(g, muHat, sigmaHat, rule, ...)
 }
 
 \arguments{
@@ -20,6 +20,7 @@ aghQuad(n)
 the second derivative of g at muHat)}
 \item{rule}{Gauss-Hermite quadrature rule to use, as produced by
 \code{\link{gaussHermiteData}}}
+\item{...}{Additional arguments for g}
 }
 
 \details{

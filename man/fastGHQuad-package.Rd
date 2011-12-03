@@ -28,13 +28,14 @@ Maintainer: Alexander W Blocker <ablocker@gmail.com>
 }
 \references{
 Golub, G. H. and Welsch, J. H. (1969). Calculation of Gauss Quadrature Rules.
-Mathematics of Computation 23 (106): 221–230.
+Mathematics of Computation 23 (106): 221-230.
 
 Liu, Q. and Pierce, D. A. (1994). A Note on Gauss-Hermite Quadrature.
 Biometrike, 81(3) 624-629.
 }
 \keyword{ package }
 \seealso{
+\code{\link{gaussHermiteData}}, \code{\link{aghQuad}}, \code{\link{ghQuad}}
 }
 \examples{
 # Get quadrature rule
