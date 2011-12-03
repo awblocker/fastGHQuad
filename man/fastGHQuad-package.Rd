@@ -31,7 +31,7 @@ Golub, G. H. and Welsch, J. H. (1969). Calculation of Gauss Quadrature Rules.
 Mathematics of Computation 23 (106): 221-230.
 
 Liu, Q. and Pierce, D. A. (1994). A Note on Gauss-Hermite Quadrature.
-Biometrike, 81(3) 624-629.
+Biometrika, 81(3) 624-629.
 }
 \keyword{ package }
 \seealso{
