@@ -24,10 +24,18 @@ the second derivative of g at muHat)}
 }
 
 \details{
-This function approximates integral of g from -Inf to Inf using the method of
-Liu & Pierce (1994). This technique uses a Gaussian approximation of g (or the
-distribution component of g, if an expectation is desired) to "focus" quadrature
-around the high-density region of the distribution.
+This function approximates
+\deqn{\int_{-\infty}^{\infty} g(x) \, dx}{
+      integral( g(x), -Inf, Inf)}
+using the method of Liu & Pierce (1994). This technique uses a Gaussian
+approximation of g (or the distribution component of g, if an expectation is
+desired) to "focus" quadrature around the high-density region of the
+distribution. Formally, it evaluates:
+\deqn{ \sqrt{2} \hat{sigma} \sum_i w_i \exp(x_i^2) g(\hat{mu} + \sqrt{2}
+\hat{sigma} x_i) }{
+sqrt(2) * sigmaHat * sum( w * exp(x^2) * g(muHat + sqrt(2) * sigmaHat * x))
+}
+where x and w come from the given rule.
 
 This method can, in many cases (where the Gaussian approximation is reasonably
 good), achieve better results with 10-100 quadrature points than with 1e6 or
