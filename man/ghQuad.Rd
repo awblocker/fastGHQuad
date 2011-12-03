@@ -21,6 +21,10 @@ does not include the weight function \code{exp(-x^2)}}
 }
 
 \details{
+This function performs classical unidimensional Gauss-Hermite quadrature with
+the function f using the rule provided; that is, it approximates
+\deqn{\int_{-\inf}^{\inf} f(x) \exp(-x^2) \, dx}{
+      integral( f(x) exp(-x^2), -Inf, Inf)}
 }
 
 \value{
