@@ -25,9 +25,9 @@ This function performs classical unidimensional Gauss-Hermite quadrature with
 the function f using the rule provided; that is, it approximates
 \deqn{\int_{-\infty}^{\infty} f(x) \exp(-x^2) \, dx}{
       integral( f(x) exp(-x^2), -Inf, Inf)}
-}
 by evaluating
 \deqn{ \sum_i w_i f(x_i) }{sum( w * f(x) )}
+}
 
 \value{
 Numeric (scalar) with approximation integral of f(x)*exp(-x^2) from -Inf to Inf.
