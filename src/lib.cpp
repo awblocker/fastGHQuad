@@ -109,7 +109,7 @@ void findPolyRoots( double* c, int n, double* r ) {
 //
     using namespace std;
     
-    int i, j;
+    int i;
 
     // Build companion matrix; column-major order for compatibility with LAPACK
     double * C  = new double[n*n];
