@@ -1,0 +1,4 @@
+2011-12-05	Alexander W Blocker <ablocker@gmail.com>
+		
+		* src/lib.cpp: Add explicit casts to log calls where needed
+
