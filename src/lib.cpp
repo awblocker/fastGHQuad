@@ -264,7 +264,7 @@ double hermitePoly(double x, int n) {
   // Standard recursion
   double hnm2 = 1;
   double hnm1 = 2 * x;
-  double hn;
+  double hn = 0;
   for (i = 2; i <= n; i++) {
     hn = 2 * x * hnm1 - 2 * (i - 1) * hnm2;
     hnm2 = hnm1;
