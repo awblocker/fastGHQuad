@@ -1,2 +1,3 @@
+import("Rcpp")
 useDynLib(fastGHQuad)
 exportPattern("^[[:alpha:]]+")
