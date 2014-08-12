@@ -17,3 +17,4 @@
 *.so
 # Rcheck results
 *Rcheck*
+.Rproj.user
