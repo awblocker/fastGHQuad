@@ -32,14 +32,14 @@
 #' 
 #' # Check that rule is implemented correctly
 #' f <- function(x) rep(1,length(x))
-#' if (!all.equal(sqrt(pi), ghQuad(f, rule10), ghQuad(f, rule100))) {
+#' if (!isTRUE(all.equal(sqrt(pi), ghQuad(f, rule10), ghQuad(f, rule100)))) {
 #'   print(ghQuad(f, rule10))
 #'   print(ghQuad(f, rule100))
 #' }
 #' # These should be 1.772454
 #' 
 #' f <- function(x) x
-#' if (!all.equal(0, ghQuad(f, rule10), ghQuad(f, rule100))) {
+#' if (!isTRUE(all.equal(0.0, ghQuad(f, rule10), ghQuad(f, rule100)))) {
 #'   print(ghQuad(f, rule10))
 #'   print(ghQuad(f, rule100))
 #' }
