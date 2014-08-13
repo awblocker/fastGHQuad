@@ -27,12 +27,12 @@ void buildHermiteJacobi(int n, vector<double> *D, vector<double> *E) {
   // Build diagonal
   int i;
   for (i = 0; i < n; i++) {
-    (*D)[i] = 0;
+    (*D)[i] = 0.;
   }
 
   // Build sub/super-diagonal
   for (i = 0; i < n - 1; i++) {
-    (*E)[i] = sqrt((i + 1.0) / 2);
+    (*E)[i] = sqrt((i + 1.) / 2.);
   }
 }
 
@@ -109,12 +109,12 @@ void findPolyRoots(const vector<double> &c, int n, vector<double> *r) {
   // Build companion matrix; column-major order for compatibility with LAPACK
   vector<double> C(n * n);
   for (i = 0; i < n * n; i++) {
-    C[i] = 0;
+    C[i] = 0.;
   }
 
   // Add diagonal components
   for (i = 1; i < n; i++) {
-    C[i + n * (i - 1)] = 1;
+    C[i + n * (i - 1)] = 1.;
   }
 
   // Add coefficients
@@ -193,23 +193,23 @@ void hermitePolyCoef(int n, vector<double> *c) {
   vector<long> work((n + 1) * (n + 1));
   int i, j;
   for (i = 0; i < (n + 1) * (n + 1); i++) {
-    work[i] = 0;
+    work[i] = 0.;
   }
 
   // Handle special cases (n<2)
   if (n == 0) {
-    (*c)[0] = 1;
+    (*c)[0] = 1.;
     return;
   } else if (n == 1) {
-    (*c)[0] = 0;
-    (*c)[1] = 2;
+    (*c)[0] = 0.;
+    (*c)[1] = 2.;
     return;
   }
 
   // Initialize recursion
-  work[0] = 1;  // H_0(x) = 1
-  work[1] = 0;
-  work[1 + 1 * (n + 1)] = 2;  // H_1(x) = 2*x
+  work[0] = 1.;  // H_0(x) = 1
+  work[1] = 0.;
+  work[1 + 1 * (n + 1)] = 2.;  // H_1(x) = 2*x
 
   // Run recursion relation
   for (i = 2; i < n + 1; i++) {
@@ -217,8 +217,8 @@ void hermitePolyCoef(int n, vector<double> *c) {
     work[i] = -2 * (i - 1) * work[i - 2];
     for (j = 1; j < i + 1; j++) {
       // Remainder of recursion relation
-      work[i + j * (n + 1)] = 2 * work[(i - 1) + (j - 1) * (n + 1)] -
-                              2 * (i - 1) * work[(i - 2) + j * (n + 1)];
+      work[i + j * (n + 1)] = 2. * work[(i - 1) + (j - 1) * (n + 1)] -
+                              2. * (i - 1.) * work[(i - 2) + j * (n + 1)];
     }
   }
 
@@ -256,17 +256,17 @@ double hermitePoly(double x, int n) {
 
   // Special cases
   if (n == 0) {
-    return 1;
+    return 1.;
   } else if (n == 1) {
-    return 2 * x;
+    return 2. * x;
   }
 
   // Standard recursion
-  double hnm2 = 1;
-  double hnm1 = 2 * x;
-  double hn = 0;
+  double hnm2 = 1.;
+  double hnm1 = 2. * x;
+  double hn = 0.;
   for (i = 2; i <= n; i++) {
-    hn = 2 * x * hnm1 - 2 * (i - 1) * hnm2;
+    hn = 2. * x * hnm1 - 2. * (i - 1.) * hnm2;
     hnm2 = hnm1;
     hnm1 = hn;
   }
@@ -331,8 +331,8 @@ int gaussHermiteDataDirect(int n, vector<double> *x, vector<double> *w) {
   double log2 = log(2.0), logsqrtpi = 0.5 * log(PI);
   for (i = 0; i < n; i++) {
     // First, compute the log-weight
-    (*w)[i] = (n - 1) * log2 + lgamma(n + 1) + logsqrtpi - 2 * log((double)n) -
-              2 * log(abs(hermitePoly((*x)[i], n - 1)));
+    (*w)[i] = (n - 1.) * log2 + lgamma(n + 1) + logsqrtpi -
+              2. * log((double)n) - 2. * log(abs(hermitePoly((*x)[i], n - 1)));
     (*w)[i] = exp((*w)[i]);
   }
 
