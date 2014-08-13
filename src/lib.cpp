@@ -374,8 +374,5 @@ SEXP gaussHermiteData(SEXP nR) {
   gaussHermiteData(n, &x, &w);
 
   // Build list for values
-  List ret;
-  ret["x"] = x;
-  ret["w"] = w;
-  return ret;
+  return List::create(Named("x") = x, Named("w") = w);
 }
