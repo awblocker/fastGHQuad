@@ -89,5 +89,8 @@ hermitePolyCoef <- function(n) {
 #' Biometrika, 81(3) 624-629.
 #' @keywords math
 gaussHermiteData <- function(n) {
+    if (n < 1) {
+        stop("n must be a positive integer")
+    }
     .Call("gaussHermiteData", n, PACKAGE="fastGHQuad")
 }
