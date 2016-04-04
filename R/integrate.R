@@ -80,7 +80,7 @@ ghQuad <- function(f, rule, ...) {
 #' @param g Function to integrate with respect to first (scalar) argument
 #' @param muHat Mode for Laplace approximation
 #' @param sigmaHat Scale for Laplace approximation (\code{sqrt(-1/H)}, where H
-#' is the second derivative of g at muHat)
+#' is the second derivative of log(g) at muHat)
 #' @param rule Gauss-Hermite quadrature rule to use, as produced by
 #' \code{\link{gaussHermiteData}}
 #' @param ... Additional arguments for g
