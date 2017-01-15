@@ -31,9 +31,9 @@ void quadInfoGolubWelsch(int n, std::vector<double>& D, std::vector<double>& E,
                          double mu0, std::vector<double>& x,
                          std::vector<double>& w);
 
-int gaussHermiteDataDirect(int n, std::vector<double>& x,
-                           std::vector<double>& w);
-int gaussHermiteData(int n, std::vector<double>& x, std::vector<double>& w);
+int gaussHermiteDataDirect(int n, std::vector<double>* x,
+                           std::vector<double>* w);
+int gaussHermiteDataGolubWelsch(int n, std::vector<double>* x, std::vector<double>* w);
 RcppExport SEXP gaussHermiteData(SEXP nR);
 
 #endif
