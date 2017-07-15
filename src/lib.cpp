@@ -1,6 +1,7 @@
 #include "lib.h"
 
 using std::vector;
+using std::abs;
 
 void buildHermiteJacobi(int n, vector<double> *D, vector<double> *E) {
   //
@@ -339,7 +340,7 @@ int gaussHermiteDataDirect(int n, vector<double> *x, vector<double> *w) {
   return 0;
 }
 
-int gaussHermiteData(int n, vector<double> *x, vector<double> *w) {
+int gaussHermiteDataGolubWelsch(int n, vector<double> *x, vector<double> *w) {
   //
   // Calculates nodes & weights for Gauss-Hermite integration of order n
   //
@@ -371,7 +372,7 @@ SEXP gaussHermiteData(SEXP nR) {
   vector<double> x(n), w(n);
 
   // Build Gauss-Hermite integration rules
-  gaussHermiteData(n, &x, &w);
+  gaussHermiteDataGolubWelsch(n, &x, &w);
 
   // Build list for values
   return List::create(Named("x") = x, Named("w") = w);
