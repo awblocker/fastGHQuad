@@ -1,3 +1,8 @@
+# Fast Gauss-Hermite quadrature
+
+[![Build
+Status](https://travis-ci.org/awblocker/fastGHQuad.svg?branch=master)](https://travis-ci.org/awblocker/fastGHQuad)
+
 This is an R package for fast, numerically-stable Gauss-Hermite quadrature. It
 uses the Golub-Welch algorithm (implemented using a Rcpp/LAPACK interface in
 compiled code) to evaluate quadrature rules with 1000+ points with numerical
