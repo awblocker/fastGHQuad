@@ -19,3 +19,5 @@
 *Rcheck*
 .Rproj.user
 .Rhistory
+# revdep check results
+revdep
