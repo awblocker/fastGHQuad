@@ -1,12 +1,13 @@
 Package: fastGHQuad
 Type: Package
-Title: Fast Rcpp implementation of Gauss-Hermite quadrature
+Title: Fast 'Rcpp' Implementation of Gauss-Hermite Quadrature
 Version: 1.0
-Date: 2018-09-22
+Date: 2018-09-29
 Author: Alexander W Blocker
 Maintainer: Alexander W Blocker <ablocker@gmail.com>
 Description: Fast, numerically-stable Gauss-Hermite quadrature rules and
-    utility functions for adaptive GH quadrature.
+    utility functions for adaptive GH quadrature. See Liu, Q. and Pierce, D. A.
+    (1994) <doi:10.2307/2337136> for a reference on these methods.
 License: MIT + file LICENSE
 LazyLoad: yes
 URL: https://github.com/awblocker/fastGHQuad
