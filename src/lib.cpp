@@ -82,7 +82,7 @@ void quadInfoGolubWelsch(int n, vector<double> &D, vector<double> &E,
   // Run eigen decomposition
   F77_NAME(dstev)(&JOBZ, &n, &D[0], &E[0],  // Job flag & input matrix
                   &Z[0], &n,       // Output array for eigenvectors & dim
-                  &WORK[0], &INFO  // Workspace & info flag
+                  &WORK[0], &INFO FCONE // Workspace & info flag
                   );
 
   // Setup x & w
@@ -147,7 +147,7 @@ void findPolyRoots(const vector<double> &c, int n, vector<double> *r) {
       NULL, &one,          // VR & LDVR; not used
       &tmpwork,            // Workspace; will contain optimal size upon exit
       &LWORK,              // Workspace size; -1 -> get optimal size
-      &INFO                // Status code
+      &INFO FCONE          // Status code
       );
 
   // Next, actually run eigendecomposition
@@ -161,7 +161,7 @@ void findPolyRoots(const vector<double> &c, int n, vector<double> *r) {
       NULL, &one,          // VR & LDVR; not used
       &work[0],            // Workspace; will contain optimal size upon exit
       &LWORK,              // Workspace size; -1 -> get optimal size
-      &INFO                // Status code
+      &INFO FCONE          // Status code
       );
 }
 
