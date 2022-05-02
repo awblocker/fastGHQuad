@@ -1,6 +1,7 @@
 #ifndef _fastGHQuad_LIB_H
 #define _fastGHQuad_LIB_H
 
+#define USE_FC_LEN_T
 #include <Rcpp.h>
 #include <R_ext/Lapack.h>
 
