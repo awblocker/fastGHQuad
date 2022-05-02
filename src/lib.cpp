@@ -147,7 +147,8 @@ void findPolyRoots(const vector<double> &c, int n, vector<double> *r) {
       NULL, &one,          // VR & LDVR; not used
       &tmpwork,            // Workspace; will contain optimal size upon exit
       &LWORK,              // Workspace size; -1 -> get optimal size
-      &INFO FCONE          // Status code
+      &INFO,               // Status code
+      FCONE FCONE
       );
 
   // Next, actually run eigendecomposition
@@ -161,7 +162,8 @@ void findPolyRoots(const vector<double> &c, int n, vector<double> *r) {
       NULL, &one,          // VR & LDVR; not used
       &work[0],            // Workspace; will contain optimal size upon exit
       &LWORK,              // Workspace size; -1 -> get optimal size
-      &INFO FCONE          // Status code
+      &INFO                // Status code
+      FCONE FCONE
       );
 }
 
