@@ -5,6 +5,10 @@
 #include <Rcpp.h>
 #include <R_ext/Lapack.h>
 
+#ifndef FCONE
+# define FCONE
+#endif
+
 /*
  * note : RcppExport is an alias to `extern "C"` defined by Rcpp.
  *
