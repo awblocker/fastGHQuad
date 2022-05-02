@@ -147,7 +147,7 @@ void findPolyRoots(const vector<double> &c, int n, vector<double> *r) {
       NULL, &one,          // VR & LDVR; not used
       &tmpwork,            // Workspace; will contain optimal size upon exit
       &LWORK,              // Workspace size; -1 -> get optimal size
-      &INFO,               // Status code
+      &INFO                // Status code
       FCONE FCONE
       );
 
