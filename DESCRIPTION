@@ -2,7 +2,7 @@ Package: fastGHQuad
 Type: Package
 Title: Fast 'Rcpp' Implementation of Gauss-Hermite Quadrature
 Version: 1.0.1
-Date: 2021-05-22
+Date: 2022-05-03
 Author: Alexander W Blocker
 Maintainer: Alexander W Blocker <ablocker@gmail.com>
 Description: Fast, numerically-stable Gauss-Hermite quadrature rules and
