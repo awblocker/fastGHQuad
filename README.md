@@ -1,6 +1,6 @@
 # Fast Gauss-Hermite quadrature
 
-[![Build Status](https://travis-ci.com/awblocker/fastGHQuad.svg?branch=master)](https://travis-ci.com/awblocker/fastGHQuad)
+[![Build Status](https://www.travis-ci.com/awblocker/fastGHQuad.svg?branch=master)](https://www.travis-ci.com/awblocker/fastGHQuad)
 [![CRAN Status Badge](http://www.r-pkg.org/badges/version/fastGHQuad)](https://cran.r-project.org/package=fastGHQuad)
 
 This is an R package for fast, numerically-stable Gauss-Hermite quadrature. It
