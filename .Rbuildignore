@@ -3,3 +3,5 @@
 .travis.yml
 ^cran-comments\.md$
 ^revdep$
+^CRAN-SUBMISSION$
+^README\.md$
