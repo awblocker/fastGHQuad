@@ -15,6 +15,9 @@ This is a minor release to address USE_FC_LEN_T.
 
 R CMD check succeeded
 
+I have manually checked https://dx.doi.org/10.2307/2337136 and verified that it
+is valid.
+
 ## revdepcheck results
 
 We checked 10 reverse dependencies, comparing R CMD check results
