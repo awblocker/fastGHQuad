@@ -21,3 +21,5 @@
 .Rhistory
 # revdep check results
 revdep
+# CRAN related files
+CRAN-SUBMISSION
